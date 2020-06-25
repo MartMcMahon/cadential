@@ -1,1 +1,10 @@
 output.wav
+
+# venv files
+bin/
+lib/
+share/
+pyvenv.cfg
+
+# kite
+kite-vim.log
