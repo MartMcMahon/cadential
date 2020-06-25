@@ -1,5 +1,7 @@
 import pyaudio
 import wave
+import sys
+
 # look into pydub for import
 
 CHUMNK = 1024
@@ -8,6 +10,13 @@ CHANNELS = 2
 RATE = 44100
 RECORD_SECONDS = 5
 WAVE_OUTPUT_FILENAME = "output.wav"
+
+if len(sys.argv) > 1 and sys.argv[1] == "-c":
+    try:
+        CHANNELS = int(sys.argv[2])
+    except (IndexError, ValueError):
+        print("number of channels missing or invalid")
+        exit(1)
 
 p = pyaudio.PyAudio()
 
